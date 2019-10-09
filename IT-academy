@@ -1,0 +1,40 @@
+        public int bSearch(int X, int [] mass, params object[] mas) 
+        {
+             for (int i = 0; i < mass.Length; i++)
+             {
+                 if (X < mass[i])
+                 {
+                     return i;
+                 }
+
+             }
+             return -1; // если ответ не существует
+        }
+
+        //бинарный поиск
+        public int bsearch(int x, int[] mass, params object[] mas)
+        {
+            int first = mass.GetLowerBound(0);
+            int last = mass.GetUpperBound(0);
+            while (true)
+            {
+                if (last - first == 1)
+                {
+                    if (mass[last].CompareTo(x) > 0)
+                        return last;
+                    if (mass[first].CompareTo(x) < 0)
+                        return first;
+                    return -1; // если ответ не существует
+                }
+                else
+                {
+                    int mid = first + (last - first) / 2;
+                    int compResult = mass[mid].CompareTo(x);
+                    if(compResult < 0)
+                        first = mid;
+                    if (compResult > 0)
+                        last = mid;
+                }
+            }
+
+        }
