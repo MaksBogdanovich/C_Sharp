@@ -22,8 +22,6 @@
                 {
                     if (mass[last].CompareTo(x) > 0)
                         return last;
-                    if (mass[first].CompareTo(x) < 0)
-                        return first;
                     return -1; // если ответ не существует
                 }
                 else
